@@ -1,0 +1,14 @@
+.page-title-wrapper {
+  // padding: 0 150px 10px 0;
+  &-inner {
+    width: 200px;
+    padding: 10px 0;
+    background-color: #a0c8c0;
+    text-align: center;
+    border-radius: 10px;
+    .page-title {
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.input-with-suffix-wrapper {
+  .form-suffix {
+    padding-left: 3px;
+    &.dynamic-room-code {
+      display: inline-block;
+      width: 28px;
+    }
+  }
+}

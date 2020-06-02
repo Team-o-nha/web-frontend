@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GlobalHeader 日本語で表示する画面が予期せず変更されていないかを確かめる 1`] = `
+<Adapter
+  className="global-header-wrapper clearfix"
+  data-test="global-header-wrapper"
+>
+  <div
+    className="left-menu-wrapper"
+  >
+    <Menu
+      mode="horizontal"
+      selectedKeys={
+        Array [
+          "Reservation",
+        ]
+      }
+      style={
+        Object {
+          "lineHeight": "64px",
+        }
+      }
+      theme="dark"
+    >
+      <MenuItem
+        key="Home"
+      >
+        <Link
+          to="/jp/"
+        >
+          ホーム
+        </Link>
+      </MenuItem>
+      <MenuItem
+        key="Reservation"
+      >
+        <Link
+          to="/jp/reservation"
+        >
+          予約
+        </Link>
+      </MenuItem>
+      <MenuItem
+        key="Vacancy"
+      >
+        <Link
+          to="/jp/vacancy"
+        >
+          空室問い合わせ
+        </Link>
+      </MenuItem>
+    </Menu>
+  </div>
+  <div
+    className="right-menu-wrapper"
+  >
+    <Menu
+      mode="horizontal"
+      selectable={false}
+      style={
+        Object {
+          "lineHeight": "64px",
+        }
+      }
+      theme="dark"
+    >
+      <MenuItem
+        className="header-menu-item-right"
+        key="i18next-jp"
+      >
+        <a
+          href="/jp/reservation"
+        >
+          日本語
+        </a>
+      </MenuItem>
+      <MenuItem
+        className="header-menu-item-right"
+        key="i18next-en"
+      >
+        <a
+          href="/en/reservation"
+        >
+          English
+        </a>
+      </MenuItem>
+    </Menu>
+  </div>
+</Adapter>
+`;

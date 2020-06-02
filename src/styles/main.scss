@@ -1,0 +1,38 @@
+@import "./custom.scss";
+.main-wrapper {
+  font-family: "ＭＳ ゴシック", sans-serif;
+  & .ant-form-item {
+    margin-right: 0 !important;
+    &-label {
+      line-height: 28px;
+    }
+    &-control-wrapper {
+      & .ant-form-item-control {
+        line-height: 28px;
+        & .ant-form-item-children {
+          textarea {
+            padding: 1px 7px;
+          }
+        }
+      }
+    }
+  }
+  & .ant-input {
+    margin-bottom: 0;
+    &.essential-input {
+      background-color: #f1c467;
+    }
+    &.hidden-input {
+      background-color: transparent;
+      border: none;
+    }
+    &:focus {
+      background-color: #9dc788;
+    }
+  }
+  & .custom-date-picker-input {
+    input {
+      background: #f0e1c7;
+    }
+  }
+}

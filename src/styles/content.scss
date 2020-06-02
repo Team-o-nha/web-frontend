@@ -1,0 +1,28 @@
+@import "./custom.scss";
+
+// Mixins
+@mixin page-wrapper-grid-element(
+  $page-wrapper,
+  $background-color,
+  $has-padding: true
+) {
+  grid-area: $page-wrapper;
+  background: $background-color;
+  padding: if($has-padding, $page-wrapper-padding, unset);
+}
+
+@mixin page-wrapper-inner-border-section($has-padding: true) {
+  height: 100%;
+  padding: if($has-padding, 5px, unset);
+  border: 2px solid #000;
+}
+
+// Extend/Inheritance
+%wincalx-button-style {
+  width: 80px;
+  padding: 5px 0;
+  // TODO: be careful of height
+  height: 100%;
+  white-space: pre-line;
+  background: $button-bg-color;
+}
