@@ -9,7 +9,7 @@ import "./style.scss";
 const CarouselSlider = () => (
   <div className="carousel-wrapper">
     <div className="carousel-wrapper-inner">
-      <Carousel effect="fade" autoplay>
+      <Carousel effect="fade" autoplay dotPosition="right">
         <div>
           <img src={ms_banner_img1} alt="banner" />
         </div>
