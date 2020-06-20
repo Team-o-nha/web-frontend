@@ -1,0 +1,7 @@
+@import "./custom.scss";
+.main-wrapper {
+  font-family: "Poppins", sans-serif;
+  & .ant-layout {
+    background: #ffffff;
+  }
+}

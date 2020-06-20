@@ -1,0 +1,8 @@
+.home-body-wrapper {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  &-inner {
+    padding: 0 30px;
+  }
+}

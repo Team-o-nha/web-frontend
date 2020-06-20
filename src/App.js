@@ -1,56 +1,44 @@
 import React from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import Header from "./comnponents/header/header.component";
-import AnimationRouter from "./comnponents/routerAnimation/routerAnimation";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-import { selectCurrentUser } from "./redux/user/_user.selcetor";
-import { setCurrentUser } from "./redux/user/user.action";
-class App extends React.Component {
-  unsubscribeFromAuth = null;
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ConfigProvider } from "antd";
+// components import
+import ScrollToTop from "./components/ScrollToTop";
+import ErrorBoundary from "./pages/ErrorBoundary";
+import { appRoutes, redirectRoutes } from "./routers/appRoutes";
+import "antd/dist/antd.css";
 
-  componentDidMount() {
-    const { setCurrentUser } = this.props;
+// generate app reidrect routes
+const redirectRouteComponents = redirectRoutes.map(route => (
+  <Route
+    key={route.path || "/notFound"}
+    path={route.path}
+    exact={route.exact}
+    render={route.render}
+  />
+));
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
+// generate app routes
+const routeComponents = appRoutes.map(route => (
+  <Route
+    key={route.path || "/notFound"}
+    path={route.path}
+    exact={route.exact}
+    component={route.component}
+  />
+));
 
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data()
-          });
-        });
-      }
+const App = () => (
+  // #Reference: https://ant.design/components/config-provider/#API
+  // autoInsertSpaceInButton: set false to remove space between 2 chinese characters on Button
+  <ConfigProvider autoInsertSpaceInButton={false}>
+    <ErrorBoundary>
+      <Router>
+        <ScrollToTop />
+        <Switch>{redirectRouteComponents}</Switch>
+        <Switch>{routeComponents}</Switch>
+      </Router>
+    </ErrorBoundary>
+  </ConfigProvider>
+);
 
-      setCurrentUser(userAuth);
-    });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
-
-  render() {
-    return (
-      <div>
-        <Header />
-        <AnimationRouter currentUser={this.props.currentUser} />
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
-});
-
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;
