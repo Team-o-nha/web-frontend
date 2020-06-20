@@ -128,6 +128,21 @@ const findByTestAttr = (component, attr) => {
   return wrapper;
 };
 
+/**
+ * Define config options
+ * @typedef {Object} formatterConfig
+ * @property {number} minimumFractionDigits - the number of decimal digits
+ */
+/**
+ * format numbers. For example:
+ * 3000.3234353132 -> "3,000.323"
+ * 2.0 -> "2.0", 2.012345 -> "2.012" (using minimumFractionDigits = 0, default maximumFractionDigits = 3)
+ * @param {number} number - number needs to be converted to string
+ * @param {formatterConfig} options - formatter configs
+ */
+const formatNumber = (number, formatterConfig = { minimumFractionDigits: 0 }) =>
+  new Intl.NumberFormat("en-US", formatterConfig).format(number);
+
 export {
   cookieUtils,
   getComponentsToRender,
@@ -137,5 +152,6 @@ export {
   isSatOrSun,
   defaultHttpResponseCbError,
   generateFunctionButtonKeys,
-  findByTestAttr
+  findByTestAttr,
+  formatNumber
 };

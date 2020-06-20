@@ -1,7 +1,8 @@
 import React from "react";
-import CarouselSlider from "./component/CarouselSlider";
-import CategoriesBar from "./component/CategoriesBar";
-import HomeBody from "./component/HomeBody";
+import CarouselSlider from "./mains/CarouselSlider";
+import CategoriesBar from "./mains/CategoriesBar";
+import HomeBody from "./mains/HomeBody";
+import Footer from "@/components/Footer";
 import "./style.scss";
 
 const Home = () => (
@@ -10,6 +11,7 @@ const Home = () => (
       <CarouselSlider />
       <CategoriesBar />
       <HomeBody />
+      <Footer />
     </div>
   </div>
 );

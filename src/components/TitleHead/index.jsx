@@ -5,7 +5,7 @@ const TitleHead = ({ pageTitle }) => (
   <div className="title-head-wrapper">
     <div className="title-head-wrapper-inner">
       <a href="/collections/">
-        <h2 class="section-title">
+        <h2 className="section-title">
           <span>{pageTitle}</span>
         </h2>
       </a>
